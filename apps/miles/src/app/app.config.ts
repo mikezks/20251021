@@ -1,0 +1,16 @@
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideMultiVersionMfe } from '@flight-demo/shared/federation';
+import { App } from './app';
+import { routes } from './app.routes';
+
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes,
+      withComponentInputBinding()
+    ),
+    provideMultiVersionMfe('mfe-tickets', App),
+  ]
+};
