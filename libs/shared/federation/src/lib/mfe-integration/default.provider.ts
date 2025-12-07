@@ -2,7 +2,19 @@ import { EnvironmentProviders, makeEnvironmentProviders, Type } from "@angular/c
 import { provideCustomElement } from "../custom-element/custom-element.provider";
 import { provideMfeHistoryNavigation, provideMfeKey } from "../router/router.provider";
 import { provideZoneSharing } from "../zone/zone.provider";
+import { provideMfeConfig } from "../mfe-discovery/mfe.config";
+import { provideDeeplinkingListener, provideDeeplinkingSender } from "../router/deep-linking";
 
+
+export function provideMfeShell(
+  url: string
+): EnvironmentProviders {
+  return makeEnvironmentProviders([
+    provideZoneSharing(),
+    provideMfeConfig(url),
+    provideDeeplinkingListener(),
+  ]);
+}
 
 export function provideMultiVersionMfe(
   tagname: string,
@@ -12,6 +24,7 @@ export function provideMultiVersionMfe(
     provideZoneSharing(),
     provideCustomElement(tagname, component),
     provideMfeHistoryNavigation(),
-    provideMfeKey()
+    provideMfeKey(),
+    provideDeeplinkingSender()
   ]);
 }
