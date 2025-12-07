@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from '@flight-demo/shared/core';
-import { integrateMfe } from './mfe.integration';
+import { integrateMfe } from '@flight-demo/shared/federation';
 
 
 export const APP_ROUTES: Routes = [
