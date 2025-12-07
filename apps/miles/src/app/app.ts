@@ -12,10 +12,13 @@ import { MfeRouterNavigation } from '@flight-demo/shared/federation';
   template: `
     <ul>
       <li>
-        <a routerLink="miles-multi/overview">Overview</a>
+        <a routerLink="miles/overview">Overview</a>
       </li>
       <li>
-        <a routerLink="miles-multi/detail/3">Detail</a>
+        <a routerLink="miles/detail/3">Detail</a>
+      </li>
+      <li>
+        <a routerLink="tickets/detail/3">Tickets: Detail</a>
       </li>
     </ul>
 

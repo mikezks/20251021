@@ -5,11 +5,11 @@ import { Overview } from './views/overview';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'miles-multi',
+    redirectTo: 'miles',
     pathMatch: 'full'
   },
   {
-    path: 'miles-multi',
+    path: 'miles',
     children: [
       {
         path: '',
