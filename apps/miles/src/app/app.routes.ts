@@ -5,7 +5,7 @@ import { Overview } from './views/overview';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'miles-multi',
+    redirectTo: 'tickets',
     pathMatch: 'full'
   },
   {
