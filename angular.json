@@ -356,55 +356,11 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {},
-					"configurations": {
-						"production": {
-							"target": "miles:esbuild:production"
-						},
-						"development": {
-							"target": "miles:esbuild:development",
-							"dev": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "@angular-architects/native-federation:build",
+					"builder": "@angular-devkit/build-angular:browser",
 					"options": {
-						"target": "miles:serve-original:development",
-						"rebuildDelay": 0,
-						"dev": true,
-						"port": 0
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n"
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"polyfills": [
-							"zone.js",
-							"zone.js/testing"
-						],
-						"tsConfig": "apps/miles/tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "apps/miles/public"
-							}
-						],
-						"styles": [
-							"apps/miles/src/styles.scss"
-						]
-					}
-				},
-				"esbuild": {
-					"builder": "@angular-devkit/build-angular:application",
-					"options": {
-						"browser": "apps/miles/src/main.ts",
+						"outputPath": "dist/miles",
+						"index": "apps/miles/src/index.html",
+						"main": "apps/miles/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -445,21 +401,44 @@
 					},
 					"defaultConfiguration": "production"
 				},
-				"serve-original": {
+				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "miles:esbuild:production"
+							"buildTarget": "miles:build:production"
 						},
 						"development": {
-							"buildTarget": "miles:esbuild:development"
+							"buildTarget": "miles:build:development"
 						}
 					},
 					"defaultConfiguration": "development",
 					"options": {
 						"port": 4201
 					}
-				}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "apps/miles/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "apps/miles/public"
+							}
+						],
+						"styles": [
+							"apps/miles/src/styles.scss"
+						]
+					}
+				}				
 			}
 		}
 	}
