@@ -7,6 +7,7 @@ import { FlightCardComponent, FlightFilterComponent } from '../../ui-flight';
 
 @Component({
   selector: 'app-flight-search',
+  standalone: true,
   imports: [
     CommonModule,
     FormsModule,

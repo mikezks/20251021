@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { provideEffects } from "@ngrx/effects";
 import { provideState } from "@ngrx/store";
-import { Airport, FlightBookingComponent, FlightEditComponent, FlightSearchComponent } from "../feature-flight";
+import { FlightBookingComponent, FlightEditComponent, FlightSearchComponent } from "../feature-flight";
 import { MyFlightsComponent } from "../feature-flight/my-flights/my-flights.component";
 import { resolveFlight, TicketEffects, ticketFeature } from "../logic-flight";
 
@@ -44,10 +44,6 @@ export const BOOKING_ROUTES: Routes = [
       {
         path: 'my-flights',
         component: MyFlightsComponent,
-      },
-      {
-        path: 'airport',
-        component: Airport,
       }
     ]
   }

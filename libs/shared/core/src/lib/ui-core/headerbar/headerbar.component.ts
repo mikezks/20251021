@@ -4,6 +4,7 @@ import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-headerbar-cmp',
+  standalone: true,
   templateUrl: 'headerbar.component.html'
 })
 export class HeaderbarComponent {

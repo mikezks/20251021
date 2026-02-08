@@ -5,6 +5,7 @@ import { validatePassengerStatus } from '../../util-validation';
 
 @Component({
   selector: 'app-passenger-edit',
+  standalone: true,
   imports: [
     ReactiveFormsModule
   ],

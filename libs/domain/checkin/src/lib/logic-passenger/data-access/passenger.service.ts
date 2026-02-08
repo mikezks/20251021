@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
-import { Injectable, ResourceRef, Signal, inject, resource } from "@angular/core";
-import { rxResource } from "@angular/core/rxjs-interop";
+import { Injectable, Signal, inject } from "@angular/core";
 import { Observable } from "rxjs";
 import { Passenger } from "../model/passenger";
 
@@ -42,23 +41,6 @@ export class PassengerService {
       .set('id', id);
 
     return this.http.get<Passenger>(url, { params });
-  }
-
-  findAsResource(filter: Signal<{ firstname: string, lastname: string }>): ResourceRef<Passenger[] | undefined> {
-    return rxResource({
-      params: filter,
-      stream: ({ params: filter }) => this.find(filter.firstname, filter.lastname)
-    });
-  }
-
-  findByIdAsResource(id: Signal<number>): ResourceRef<Passenger | undefined> {
-    return resource({
-      params: id,
-      loader: ({ params: id, abortSignal }) => fetch(
-        [this.baseUrl, 'passenger', id].join('/'),
-        { signal: abortSignal }
-      ).then(res => res.json() as Promise<Passenger>)
-    });
   }
 
   save(passenger: Passenger): Observable<Passenger> {

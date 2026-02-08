@@ -5,6 +5,7 @@ import { FlightFilter } from '../../logic-flight';
 
 @Component({
   selector: 'app-flight-filter',
+  standalone: true,
   imports: [
     ReactiveFormsModule
   ],

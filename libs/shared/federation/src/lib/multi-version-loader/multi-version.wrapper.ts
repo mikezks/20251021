@@ -1,4 +1,4 @@
-import { loadRemoteModule } from '@angular-architects/native-federation';
+import { loadRemoteModule } from '@angular-architects/module-federation';
 import { DOCUMENT } from '@angular/common';
 import { Component, inject, ElementRef, input, effect } from '@angular/core';
 import { MultiVersionConfig } from './multi-version.model';

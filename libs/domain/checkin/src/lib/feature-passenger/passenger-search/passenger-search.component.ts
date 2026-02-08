@@ -6,6 +6,7 @@ import { PassengerStore, Passenger } from '../../logic-passenger';
 
 @Component({
   selector: 'app-passenger-search',
+  standalone: true,
   imports: [
     RouterLink,
     FormsModule

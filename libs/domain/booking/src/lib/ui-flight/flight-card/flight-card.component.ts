@@ -7,6 +7,7 @@ import { Flight } from '../../logic-flight';
 
 @Component({
   selector: 'app-flight-card',
+  standalone: true,
   imports: [
     NgStyle, DatePipe,
     RouterLink

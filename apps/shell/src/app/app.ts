@@ -5,6 +5,7 @@ import { HeaderbarComponent, SidebarComponent } from '@flight-demo/shared/core';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     RouterOutlet,
     HeaderbarComponent,

@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-cmp',
+  standalone: true,
   imports: [
     RouterLink, RouterLinkActive,
   ],

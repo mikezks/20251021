@@ -7,6 +7,7 @@ import { routerFeature } from '@flight-demo/shared/state'
 
 @Component({
   selector: 'app-flight-edit',
+  standalone: true,
   imports: [
     ReactiveFormsModule
   ],

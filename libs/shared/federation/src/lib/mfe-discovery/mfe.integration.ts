@@ -1,4 +1,4 @@
-import { loadRemoteModule } from "@angular-architects/native-federation";
+import { loadRemoteModule } from "@angular-architects/module-federation";
 import { UrlMatcher, UrlSegment, defaultUrlMatcher, Route } from "@angular/router";
 import { fullMatchFirstSegment, loadMultiVersionMfe } from "@flight-demo/shared/federation";
 import { mfeConfig } from "./mfe.config";

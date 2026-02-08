@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { NavigationComponent, provideNavigationService } from '@flight-demo/shared/navigation';
 
 
 @Component({
   selector: 'app-flight-booking',
+  standalone: true,
   imports: [
     RouterOutlet,
     NavigationComponent
@@ -21,11 +22,6 @@ import { NavigationComponent, provideNavigationService } from '@flight-demo/shar
       {
         route: 'flight/search',
         label: 'Flight Search',
-        icon: 'flight'
-      },
-      {
-        route: 'airport',
-        label: 'Airports',
         icon: 'flight'
       }
     ])

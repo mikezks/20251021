@@ -1,5 +1,5 @@
 import { LocationStrategy } from '@angular/common';
-import { EnvironmentProviders, inject, InjectionToken, makeEnvironmentProviders, provideEnvironmentInitializer, signal, WritableSignal } from '@angular/core';
+import { ENVIRONMENT_INITIALIZER, EnvironmentProviders, inject, InjectionToken, makeEnvironmentProviders, signal, WritableSignal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConditionalPopStateLocationStrategy, NoopLocationStrategy } from './location-strategy';
 
@@ -10,9 +10,11 @@ export function provideRouterDisconnect(): EnvironmentProviders {
       provide: LocationStrategy,
       useFactory: () => inject(NoopLocationStrategy)
     },
-    provideEnvironmentInitializer(
-      () => inject(Router).initialNavigation()
-    )
+    {
+      provide: ENVIRONMENT_INITIALIZER,
+      multi: true,
+      useFactory: (router = inject(Router)) => () => router.initialNavigation()
+    }
   ]);
 }
 
@@ -37,10 +39,12 @@ export const MfeKey = new InjectionToken<WritableSignal<string>>('MfeKey', {
 
 export function provideMfeKey(): EnvironmentProviders {
   return makeEnvironmentProviders([
-    provideEnvironmentInitializer(
-      () => inject(MfeKey).set(
+    {
+      provide: ENVIRONMENT_INITIALIZER,
+      multi: true,
+      useFactory: (mfeKey = inject(MfeKey)) => () => mfeKey.set(
         inject(LocationStrategy).path().split('/')[1]
       )
-    )
+    }
   ]);
 }

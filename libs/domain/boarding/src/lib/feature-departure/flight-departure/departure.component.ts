@@ -6,6 +6,7 @@ import { Observable, catchError, debounceTime, distinctUntilChanged, filter, of,
 
 @Component({
   selector: 'app-departure',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule
