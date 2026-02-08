@@ -18,7 +18,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/shell",
 						"index": "apps/shell/src/index.html",
@@ -31,14 +31,17 @@
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "apps/shell/public"
+								"input": "apps/shell/public",
+								"output": "."
 							}
 						],
 						"styles": [
 							"@angular/material/prebuilt-themes/indigo-pink.css",
 							"@angular-architects/paper-design/assets/css/bootstrap.css",
 							"apps/shell/src/styles.scss"
-						]
+						],
+						"extraWebpackConfig": "apps/shell/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -54,7 +57,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "apps/shell/webpack.prod.config.js"
 						},
 						"development": {
 							"optimization": false,
@@ -65,10 +69,11 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "shell:build:production"
+							"buildTarget": "shell:build:production",
+							"extraWebpackConfig": "apps/shell/webpack.prod.config.js"
 						},
 						"development": {
 							"buildTarget": "shell:build:development"
@@ -76,7 +81,9 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "apps/shell/webpack.config.js"
 					}
 				},
 				"extract-i18n": {
@@ -438,7 +445,7 @@
 							"apps/miles/src/styles.scss"
 						]
 					}
-				}				
+				}
 			}
 		}
 	}
