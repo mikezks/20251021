@@ -3,9 +3,8 @@
 ## Setup
 
 ```bash
-git clone git clone https://github.com/mikezks/20251125 shell
-git clone git clone https://github.com/mikezks/20251125 miles --branch miles-ng19-multi
-git clone git clone https://github.com/mikezks/20251125 tickets --branch tickets-ng19-multi
+git clone git clone https://github.com/mikezks/20251125 shell-ng18 --branch main-ng18
+git clone git clone https://github.com/mikezks/20251125 miles-ng18-multi --branch miles-ng18-multi
 ```
 
 Open four terminal sessions:
@@ -13,29 +12,15 @@ Open four terminal sessions:
 1. Shell
 
     ```bash
-    cd shell
+    cd shell-ng18
     npx ng s shell
     ```
 
-2. Miles: Single Version
+2. Miles: Multi Version
 
     ```bash
-    cd shell
+    cd miles-ng18-multi
     npx ng s miles
-    ```
-
-3. Miles: Multi Version
-
-    ```bash
-    cd miles
-    npx ng s miles
-    ```
-
-4. Tickets: Multi Version
-
-    ```bash
-    cd tickets
-    npx ng s tickets
     ```
 
 ## APIs
