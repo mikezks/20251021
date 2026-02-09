@@ -58,13 +58,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           </a>
         </li>
 
-        <li routerLinkActive="active">
-          <a routerLink="tickets">
-            <i class="icon icon-boarding"></i>
-            <p>Tickets</p>
-          </a>
-        </li>
-
       </ul>
 
     </div>
