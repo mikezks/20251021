@@ -1,4 +1,3 @@
 {
-  "miles": { "integrationMode": "single" },
-  "tickets": { "integrationMode": "multi" }
+  "miles": { "integrationMode": "multi" }
 }

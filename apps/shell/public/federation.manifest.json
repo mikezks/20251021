@@ -1,5 +1,0 @@
-{
-	"miles": "http://localhost:4201/remoteEntry.json",
-	"miles-multi": "http://localhost:4203/remoteEntry.json",
-	"tickets-multi": "http://localhost:4204/remoteEntry.json"
-}
