@@ -1,4 +1,4 @@
-import { EnvironmentProviders, inject, makeEnvironmentProviders, NgZone, provideEnvironmentInitializer } from '@angular/core';
+import { ENVIRONMENT_INITIALIZER, EnvironmentProviders, inject, makeEnvironmentProviders, NgZone } from '@angular/core';
 
 declare global {
   var ngZone: NgZone;
@@ -10,10 +10,12 @@ export function provideZoneSharing(): EnvironmentProviders {
     globalThis.ngZone
       ? { provide: NgZone, useValue: globalThis.ngZone }
       : [],
-    provideEnvironmentInitializer(
-      () => globalThis.ngZone = globalThis.ngZone
+    {
+      provide: ENVIRONMENT_INITIALIZER,
+      multi: true,
+      useFactory: (zone = inject(NgZone)) => () => globalThis.ngZone = globalThis.ngZone
         ? globalThis.ngZone
-        : inject(NgZone)
-    )
+        : zone
+    }
   ]);
 }

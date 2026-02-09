@@ -23,7 +23,9 @@ export function injectInitialRouterNavigation(): (popState?: boolean) => void {
   && router.navigateByUrl(location.path());
 }
 
-@Directive()
+@Directive({
+  standalone: true
+})
 export class MfeRouterNavigation {
   constructor() {
     const mfeActive = inject(MfeActive)

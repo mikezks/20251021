@@ -5,6 +5,7 @@ import { MfeRouterNavigation } from '@flight-demo/shared/federation';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     RouterLink, RouterOutlet
   ],

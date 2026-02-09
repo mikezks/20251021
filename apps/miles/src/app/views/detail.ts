@@ -2,6 +2,7 @@ import { Component, input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-overview',
+  standalone: true,
   template: `
     <h2>Your Miles Details</h2>
 

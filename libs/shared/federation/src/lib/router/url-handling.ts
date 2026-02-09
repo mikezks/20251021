@@ -1,5 +1,5 @@
 import { DOCUMENT } from "@angular/common";
-import { EnvironmentProviders, inject, Injectable, makeEnvironmentProviders } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { UrlHandlingStrategy, UrlSerializer, UrlTree } from "@angular/router";
 import { MfeKey } from "./router.provider";
 
