@@ -18,7 +18,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/miles",
 						"index": "apps/miles/src/index.html",
@@ -31,13 +31,16 @@
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "apps/miles/public"
+								"input": "apps/miles/public",
+								"output": "."
 							}
 						],
 						"styles": [
 							"apps/miles/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "apps/miles/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -53,7 +56,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "apps/miles/webpack.prod.config.js"
 						},
 						"development": {
 							"optimization": false,
@@ -64,10 +68,11 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "miles:build:production"
+							"buildTarget": "miles:build:production",
+							"extraWebpackConfig": "apps/miles/webpack.prod.config.js"
 						},
 						"development": {
 							"buildTarget": "miles:build:development"
@@ -75,7 +80,9 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4203
+						"port": 4203,
+						"publicHost": "http://localhost:4203",
+						"extraWebpackConfig": "apps/miles/webpack.config.js"
 					}
 				},
 				"extract-i18n": {

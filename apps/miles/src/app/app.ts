@@ -18,9 +18,6 @@ import { MfeRouterNavigation } from '@flight-demo/shared/federation';
       <li>
         <a routerLink="miles/detail/3">Detail</a>
       </li>
-      <li>
-        <a routerLink="tickets/detail/3">Tickets: Detail</a>
-      </li>
     </ul>
 
     <router-outlet />
